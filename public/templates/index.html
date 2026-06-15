@@ -22,6 +22,14 @@
                     <li><a href="#about">About</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
+                <div class="nav-actions">
+                    <button class="nav-action" id="loginButton" type="button">Login</button>
+                    <button class="nav-action nav-action-primary" id="registerButton" type="button">Register</button>
+                    <button class="cart-button" id="cartButton" type="button" aria-label="Open cart">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span id="cartCount">0</span>
+                    </button>
+                </div>
                 <button class="hamburger" id="hamburger">
                     <span></span>
                     <span></span>
@@ -112,6 +120,7 @@
                     </div>
                     <h3>Student Project Management System</h3>
                     <p>Interactive dashboard for college students to manage projects and assignments.</p>
+                    <button class="btn btn-primary add-cart-button" type="button" data-product-id="1">Buy Project</button>
                 </div>
 
                 <div class="portfolio-item">
@@ -120,6 +129,7 @@
                     </div>
                     <h3>Online Grocery Store</h3>
                     <p>E-commerce platform with inventory management and secure checkout.</p>
+                    <button class="btn btn-primary add-cart-button" type="button" data-product-id="2">Buy Project</button>
                 </div>
 
                 <div class="portfolio-item">
@@ -128,6 +138,7 @@
                     </div>
                     <h3>Restaurant Website</h3>
                     <p>Beautiful restaurant site with menu display and online ordering system.</p>
+                    <button class="btn btn-primary add-cart-button" type="button" data-product-id="3">Buy Project</button>
                 </div>
 
                 <div class="portfolio-item">
@@ -136,6 +147,7 @@
                     </div>
                     <h3>Online Learning Platform</h3>
                     <p>Educational website with course management and student progress tracking.</p>
+                    <button class="btn btn-primary add-cart-button" type="button" data-product-id="4">Buy Project</button>
                 </div>
             </div>
         </div>
@@ -170,21 +182,21 @@
                         <i class="fas fa-envelope"></i>
                         <div>
                             <h4>Email</h4>
-                            <p>info@nexlayar.com</p>
+                            <p><a href="mailto:nexlayar2026@gmail.com">nexlayar2026@gmail.com</a></p>
                         </div>
                     </div>
                     <div class="info-item">
                         <i class="fas fa-phone"></i>
                         <div>
                             <h4>Phone</h4>
-                            <p>+1 (555) 123-4567</p>
+                            <p><a href="tel:+919834988871">+91 98349 88871</a></p>
                         </div>
                     </div>
                     <div class="info-item">
                         <i class="fas fa-map-marker-alt"></i>
                         <div>
                             <h4>Location</h4>
-                            <p>Tech Hub, Your City</p>
+                            <p>Kaij, Maharashtra</p>
                         </div>
                     </div>
                 </div>
@@ -198,6 +210,45 @@
             </div>
         </div>
     </section>
+
+    <div class="modal" id="authModal" aria-hidden="true">
+        <div class="modal-panel">
+            <button class="modal-close" type="button" data-close-modal aria-label="Close">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="auth-tabs">
+                <button class="auth-tab active" type="button" data-auth-tab="login">Login</button>
+                <button class="auth-tab" type="button" data-auth-tab="register">Register</button>
+            </div>
+            <form class="auth-form active" id="loginForm">
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+            <form class="auth-form" id="registerForm">
+                <input type="text" name="name" placeholder="Full Name" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="tel" name="phone" placeholder="Phone Number">
+                <input type="password" name="password" placeholder="Password" minlength="6" required>
+                <button type="submit" class="btn btn-primary">Create Account</button>
+            </form>
+            <p class="form-message" id="authMessage"></p>
+        </div>
+    </div>
+
+    <div class="modal" id="cartModal" aria-hidden="true">
+        <div class="modal-panel cart-panel">
+            <button class="modal-close" type="button" data-close-modal aria-label="Close">
+                <i class="fas fa-times"></i>
+            </button>
+            <h3>Your Cart</h3>
+            <div class="cart-items" id="cartItems"></div>
+            <div class="cart-total">
+                <span>Total</span>
+                <strong id="cartTotal">Rs. 0</strong>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="footer">
