@@ -4,6 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "npx serve docs",
+    "build": "echo \"No build step - static site located in /docs\"",
+    "deploy": "npx gh-pages -d docs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

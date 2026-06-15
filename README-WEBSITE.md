@@ -98,6 +98,29 @@ You can easily customize:
 4. Add actual project images to the portfolio
 5. Set up a backend for form submission
 6. Consider adding more pages (About, Services details, Blog)
+## Run Locally
+
+1. Install dependencies (optional):
+
+```
+npm install
+```
+
+2. Serve the static `docs` folder locally:
+
+```
+npm start
+```
+
+## Deploy
+
+Deploy to GitHub Pages using the included npm script (requires a git remote):
+
+```
+npm run deploy
+```
+
+This will publish the `docs` directory to GitHub Pages using `gh-pages` via `npx`.
 
 ## Browser Support
 
