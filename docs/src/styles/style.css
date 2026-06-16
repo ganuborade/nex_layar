@@ -272,51 +272,310 @@ section {
 }
 
 /* ===========================
-   Portfolio Section
+   Portfolio Section - Project Cards
    =========================== */
 .portfolio {
+    background: var(--light-bg);
+}
+
+.project-card {
     background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    transition: var(--transition);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    border: 2px solid transparent;
+    display: flex;
+    flex-direction: column;
 }
 
-.portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    border-color: var(--primary-color);
 }
 
-.portfolio-item {
+.project-header {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.project-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+}
+
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.tech-stack .badge {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+}
+
+.project-desc {
+    color: var(--text-light);
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+.project-features {
+    list-style: none;
+    flex-grow: 1;
+    margin-bottom: 1rem;
+}
+
+.project-features li {
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+    padding-left: 0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* ===========================
+   Skills Section
+   =========================== */
+.skills-section {
+    background: white;
+    padding: 80px 0;
+}
+
+.skill-card {
     background: var(--light-bg);
     padding: 2rem;
     border-radius: 10px;
-    text-align: center;
     transition: var(--transition);
-    border: 2px solid transparent;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    text-align: center;
 }
 
-.portfolio-item:hover {
-    border-color: var(--primary-color);
-    transform: scale(1.05);
+.skill-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
-.portfolio-image {
-    font-size: 4rem;
+.skill-icon {
+    font-size: 3rem;
     color: var(--primary-color);
     margin-bottom: 1rem;
 }
 
-.portfolio-item h3 {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
+.skill-card h4 {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
     color: var(--text-dark);
 }
 
-.portfolio-item p {
+.skills-list {
+    text-align: left;
+}
+
+.skill-item {
+    margin-bottom: 1.2rem;
+}
+
+.skill-item span {
+    display: block;
+    color: var(--text-dark);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.skill-bar {
+    height: 6px;
+    background: var(--border-color);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.skill-progress {
+    height: 100%;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border-radius: 3px;
+    transition: width 0.5s ease;
+}
+
+/* ===========================
+   Pricing Section
+   =========================== */
+.pricing-section {
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(236, 72, 153, 0.1));
+    padding: 80px 0;
+}
+
+.pricing-card {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 10px;
+    transition: var(--transition);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: relative;
+    text-align: center;
+    border: 2px solid transparent;
+}
+
+.pricing-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    border-color: var(--primary-color);
+}
+
+.pricing-card.featured {
+    transform: scale(1.05);
+    border-color: var(--primary-color);
+    box-shadow: 0 15px 30px rgba(124, 58, 237, 0.2);
+}
+
+.pricing-card.featured:hover {
+    transform: scale(1.05) translateY(-10px);
+}
+
+.badge-featured {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.pricing-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+    margin-top: 0.5rem;
+}
+
+.price {
+    margin: 1.5rem 0;
+}
+
+.currency {
+    font-size: 1.2rem;
+    vertical-align: super;
+}
+
+.amount {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.period {
     color: var(--text-light);
+    font-size: 1rem;
+}
+
+.plan-desc {
+    color: var(--text-light);
+    margin-bottom: 2rem;
     font-size: 0.95rem;
 }
 
-.portfolio-item .btn {
-    margin-top: 1rem;
+.plan-features {
+    list-style: none;
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+.plan-features li {
+    padding: 0.6rem 0;
+    color: var(--text-dark);
+    font-size: 0.9rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.plan-features li:last-child {
+    border-bottom: none;
+}
+
+.plan-features i {
+    color: var(--primary-color);
+    margin-right: 0.8rem;
+    font-weight: 600;
+}
+
+.plan-features i.fa-times {
+    color: #cbd5e1;
+}
+
+/* ===========================
+   Footer Updates
+   =========================== */
+.footer {
+    background: var(--dark-bg);
+    color: white;
+    padding: 3rem 0 1rem;
+}
+
+.footer h5 {
+    color: white;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.footer p {
+    color: #cbd5e1;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+    color: #cbd5e1;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.footer-links a:hover {
+    color: var(--primary-color);
+}
+
+.footer hr {
+    border-color: rgba(255, 255, 255, 0.1);
+    margin: 2rem 0 1rem;
+}
+
+.footer .social-links {
+    gap: 1rem;
+    justify-content: center;
+}
+
+.footer .social-links a {
+    font-size: 1.5rem;
+    transition: var(--transition);
+}
+
+.footer .social-links a:hover {
+    color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+/* ===========================
+   Portfolio Section
+   =========================== */
+.portfolio {
+    background: white;
 }
 
 /* ===========================
@@ -430,40 +689,83 @@ section {
 .footer {
     background: var(--dark-bg);
     color: white;
-    padding: 2rem 0;
-    text-align: center;
+    padding: 3rem 0 1rem;
 }
 
-.footer .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-}
-
-.social-links {
-    display: flex;
-    gap: 1.5rem;
-}
-
-.social-links a {
+.footer h5 {
     color: white;
-    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.footer p {
+    color: #cbd5e1;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+    color: #cbd5e1;
+    text-decoration: none;
     transition: var(--transition);
 }
 
-.social-links a:hover {
+.footer-links a:hover {
     color: var(--primary-color);
-    transform: scale(1.2);
+}
+
+.footer hr {
+    border-color: rgba(255, 255, 255, 0.1);
+    margin: 2rem 0 1rem;
+}
+
+.footer .social-links {
+    gap: 1rem;
+    justify-content: center;
+    display: flex;
+}
+
+.footer .social-links a {
+    font-size: 1.5rem;
+    transition: var(--transition);
+    color: white;
+}
+
+.footer .social-links a:hover {
+    color: var(--primary-color);
+    transform: translateY(-3px);
 }
 
 /* ===========================
    Responsive Layouts
    =========================== */
+@media (max-width: 992px) {
+    .hero-title {
+        font-size: 3rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .pricing-card.featured {
+        transform: scale(1.02);
+    }
+}
+
 @media (max-width: 900px) {
-    .contact-content,
-    .about-content,
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+
     .portfolio-grid,
     .services-grid {
         grid-template-columns: 1fr;
@@ -472,18 +774,171 @@ section {
     .hero-title {
         font-size: 2.5rem;
     }
+
+    .logo h1 {
+        font-size: 1.5rem;
+    }
+
+    .nav-links {
+        gap: 1.2rem;
+        font-size: 0.9rem;
+    }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+    section {
+        padding: 60px 0;
+    }
+
     .hero {
-        padding: 80px 0;
+        padding: 60px 0;
+        min-height: 70vh;
     }
 
     .hero-title {
         font-size: 2rem;
     }
 
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+    }
+
+    .btn {
+        padding: 10px 25px;
+        font-size: 0.9rem;
+    }
+
+    .service-card,
+    .project-card,
+    .skill-card,
+    .pricing-card {
+        padding: 1.5rem;
+    }
+
+    .service-icon {
+        font-size: 2.5rem;
+    }
+
+    .project-header {
+        font-size: 2.5rem;
+    }
+
+    .skill-icon {
+        font-size: 2.5rem;
+    }
+
+    .price .amount {
+        font-size: 2.5rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+
+    .pricing-card.featured {
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 600px) {
+    .hero {
+        padding: 50px 0;
+        min-height: 60vh;
+    }
+
+    .hero-title {
+        font-size: 1.5rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .hero-buttons {
+        gap: 0.5rem;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.85rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
     .nav-links {
-        gap: 1rem;
+        gap: 0.8rem;
+        font-size: 0.8rem;
+    }
+
+    .logo h1 {
+        font-size: 1.3rem;
+    }
+
+    .service-card,
+    .project-card,
+    .skill-card,
+    .pricing-card {
+        padding: 1.2rem;
+    }
+
+    .service-icon,
+    .project-header,
+    .skill-icon {
+        font-size: 2rem;
+    }
+
+    .service-card h3,
+    .project-card h3,
+    .skill-card h4 {
+        font-size: 1.1rem;
+    }
+
+    .service-card p,
+    .project-desc,
+    .plan-desc {
+        font-size: 0.85rem;
+    }
+
+    .tech-stack .badge {
+        font-size: 0.7rem;
+        padding: 0.3rem 0.6rem;
+    }
+
+    .price .amount {
+        font-size: 2rem;
+    }
+
+    .pricing-card h3 {
+        font-size: 1.2rem;
+    }
+
+    .plan-features li {
+        font-size: 0.8rem;
+        padding: 0.5rem 0;
+    }
+
+    .footer {
+        text-align: center;
+        padding: 2rem 0 1rem;
+    }
+
+    .footer .social-links {
+        justify-content: center;
+        margin-top: 1rem;
+    }
+
+    .footer .social-links a {
+        font-size: 1.2rem;
     }
 }

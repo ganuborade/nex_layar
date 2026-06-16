@@ -5,8 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NexLayar - Web Solutions for Students & Businesses</title>
   <link rel="shortcut icon" href="docs/images/favicon.ico">
-  <link rel="stylesheet" href="docs/src/styles/style.css">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="docs/src/styles/style.css">
 </head>
 <body>
   <nav class="navbar">
@@ -16,7 +19,9 @@
         <ul class="nav-links">
           <li><a href="#home">Home</a></li>
           <li><a href="#services">Services</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#portfolio">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#pricing">Pricing</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
@@ -58,17 +63,255 @@
 
   <section id="portfolio" class="portfolio">
     <div class="container">
-      <h2 class="section-title">Recent Projects</h2>
-      <div class="portfolio-grid">
-        <div class="portfolio-item"><div class="portfolio-image"><i class="fas fa-graduation-cap"></i></div><h3>Student Project Management System</h3><p>Interactive dashboard for college students to manage projects and assignments.</p></div>
-        <div class="portfolio-item"><div class="portfolio-image"><i class="fas fa-store"></i></div><h3>Online Grocery Store</h3><p>E-commerce platform with inventory management and secure checkout.</p></div>
-        <div class="portfolio-item"><div class="portfolio-image"><i class="fas fa-utensils"></i></div><h3>Restaurant Website</h3><p>Beautiful restaurant site with menu display and online ordering system.</p></div>
-        <div class="portfolio-item"><div class="portfolio-image"><i class="fas fa-book"></i></div><h3>Online Learning Platform</h3><p>Educational website with course management and student progress tracking.</p></div>
+      <h2 class="section-title">My Projects</h2>
+      <div class="row g-4">
+        <!-- Face Recognition Attendance -->
+        <div class="col-md-6 col-lg-4">
+          <div class="project-card h-100">
+            <div class="project-header">
+              <i class="fas fa-face-smile"></i>
+            </div>
+            <h3>Face Recognition Attendance System</h3>
+            <div class="tech-stack">
+              <span class="badge bg-primary">Python</span>
+              <span class="badge bg-success">OpenCV</span>
+              <span class="badge bg-info">Deep Learning</span>
+              <span class="badge bg-warning">Database</span>
+            </div>
+            <p class="project-desc">An intelligent attendance system using facial recognition technology to automatically mark attendance with real-time face detection and identification.</p>
+            <ul class="project-features">
+              <li><strong>Real-time Face Detection:</strong> Detects and recognizes faces instantly</li>
+              <li><strong>Database Integration:</strong> Stores attendance records automatically</li>
+              <li><strong>High Accuracy:</strong> Uses advanced ML models for precise recognition</li>
+              <li><strong>Easy Management:</strong> Simple interface for administrators</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Village Website -->
+        <div class="col-md-6 col-lg-4">
+          <div class="project-card h-100">
+            <div class="project-header">
+              <i class="fas fa-home"></i>
+            </div>
+            <h3>My Village Portal</h3>
+            <div class="tech-stack">
+              <span class="badge bg-primary">HTML</span>
+              <span class="badge bg-success">CSS</span>
+              <span class="badge bg-info">JavaScript</span>
+              <span class="badge bg-secondary">Responsive</span>
+            </div>
+            <p class="project-desc">A comprehensive community portal built for village people to access local information, services, announcements, and connect with community members.</p>
+            <ul class="project-features">
+              <li><strong>Local Services:</strong> Directory of village services</li>
+              <li><strong>Announcements:</strong> Latest news and updates</li>
+              <li><strong>Community Connect:</strong> Member profiles and connections</li>
+              <li><strong>Mobile Friendly:</strong> Fully responsive design</li>
+            </ul>
+            <a href="https://ganuborade.github.io/my-village-portal/" target="_blank" class="btn btn-sm btn-outline-primary mt-3"><i class="fas fa-external-link-alt"></i> Visit Live</a>
+          </div>
+        </div>
+
+        <!-- NexLayar Website -->
+        <div class="col-md-6 col-lg-4">
+          <div class="project-card h-100">
+            <div class="project-header">
+              <i class="fas fa-layer-group"></i>
+            </div>
+            <h3>NexLayar - Business Website</h3>
+            <div class="tech-stack">
+              <span class="badge bg-primary">HTML</span>
+              <span class="badge bg-success">CSS</span>
+              <span class="badge bg-info">Bootstrap</span>
+              <span class="badge bg-secondary">Business</span>
+            </div>
+            <p class="project-desc">Professional business website showcasing web development services for students and businesses with portfolio, pricing, and contact features.</p>
+            <ul class="project-features">
+              <li><strong>Service Showcase:</strong> Display of all web services offered</li>
+              <li><strong>Portfolio:</strong> Previous projects and case studies</li>
+              <li><strong>Pricing Plans:</strong> Transparent service pricing</li>
+              <li><strong>Professional Design:</strong> Modern and responsive layout</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="about" class="about">
+  <!-- Skills Section -->
+  <section id="skills" class="skills-section">
+    <div class="container">
+      <h2 class="section-title">Technical Skills & Technologies</h2>
+      <div class="row g-4">
+        <!-- Frontend -->
+        <div class="col-md-6 col-lg-3">
+          <div class="skill-card">
+            <div class="skill-icon"><i class="fas fa-code"></i></div>
+            <h4>Frontend</h4>
+            <div class="skills-list">
+              <div class="skill-item">
+                <span>HTML/CSS</span>
+                <div class="skill-bar"><div class="skill-progress" style="width: 95%;"></div></div>
+              </div>
+              <div class="skill-item">
+                <span>JavaScript</span>
+                <div class="skill-bar"><div class="skill-progress" style="width: 85%;"></div></div>
+              </div>
+              <div class="skill-item">
+                <span>Bootstrap</span>
+                <div class="skill-bar"><div class="skill-progress" style="width: 90%;"></div></div>
+              </div>
+              <div class="skill-item">
+                <span>Responsive Design</span>
+                <div class="skill-bar"><div class="skill-progress" style="width: 92%;"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Backend -->
+        <div class="col-md-6 col-lg-3">
+          <div class="skill-card">
+            <div class="skill-icon"><i class="fas fa-database"></i></div>
+            <h4>Backend & Python</h4>
+            <div class="skills-list">
+              <div class="skill-item">
+                <span>Python</span>
+                <div class="skill-bar"><div class="skill-progress" style="width: 90%;"></div></div>
+              </div>
+              <div class="skill-item">
+                <span>Node.js</span>
+                <div class="skill-bar"><div class="skill-progress" style="width: 75%;"></div></div>
+              </div>
+              <div class="skill-item">
+                <span>OpenCV</span>
+                <div class="skill-bar"><div class="skill-progress" style="width: 85%;"></div></div>
+              </div>
+              <div class="skill-item">
+                <span>Database (SQL)</span>
+                <div class="skill-bar"><div class="skill-progress" style="width: 80%;"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- AI/ML -->
+        <div class="col-md-6 col-lg-3">
+          <div class="skill-card">
+            <div class="skill-icon"><i class="fas fa-brain"></i></div>
+            <h4>AI & Machine Learning</h4>
+            <div class="skills-list">
+              <div class="skill-item">
+                <span>Face Recognition</span>
+                <div class="skill-bar"><div class="skill-progress" style="width: 88%;"></div></div>
+              </div>
+              <div class="skill-item">
+                <span>Deep Learning</span>
+                <div class="skill-bar"><div class="skill-progress" style="width: 82%;"></div></div>
+              </div>
+              <div class="skill-item">
+                <span>Computer Vision</span>
+                <div class="skill-bar"><div class="skill-progress" style="width: 85%;"></div></div>
+              </div>
+              <div class="skill-item">
+                <span>TensorFlow/Keras</span>
+                <div class="skill-bar"><div class="skill-progress" style="width: 78%;"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tools & Others -->
+        <div class="col-md-6 col-lg-3">
+          <div class="skill-card">
+            <div class="skill-icon"><i class="fas fa-tools"></i></div>
+            <h4>Tools & Platforms</h4>
+            <div class="skills-list">
+              <div class="skill-item">
+                <span>Git & GitHub</span>
+                <div class="skill-bar"><div class="skill-progress" style="width: 90%;"></div></div>
+              </div>
+              <div class="skill-item">
+                <span>VS Code</span>
+                <div class="skill-bar"><div class="skill-progress" style="width: 95%;"></div></div>
+              </div>
+              <div class="skill-item">
+                <span>Figma Design</span>
+                <div class="skill-bar"><div class="skill-progress" style="width: 75%;"></div></div>
+              </div>
+              <div class="skill-item">
+                <span>Linux/Command Line</span>
+                <div class="skill-bar"><div class="skill-progress" style="width: 80%;"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section id="pricing" class="pricing-section">
+    <div class="container">
+      <h2 class="section-title">Pricing Plans</h2>
+      <div class="row g-4 justify-content-center">
+        <!-- Starter Plan -->
+        <div class="col-md-6 col-lg-4">
+          <div class="pricing-card">
+            <h3>Starter</h3>
+            <p class="price"><span class="currency">₹</span><span class="amount">5,000</span></p>
+            <p class="plan-desc">Perfect for college projects</p>
+            <ul class="plan-features">
+              <li><i class="fas fa-check"></i> Single Page Website</li>
+              <li><i class="fas fa-check"></i> Responsive Design</li>
+              <li><i class="fas fa-check"></i> Basic SEO</li>
+              <li><i class="fas fa-check"></i> 3 Months Support</li>
+              <li><i class="fas fa-times"></i> E-Commerce Features</li>
+              <li><i class="fas fa-times"></i> Advanced Analytics</li>
+            </ul>
+            <button class="btn btn-outline-primary w-100">Choose Plan</button>
+          </div>
+        </div>
+
+        <!-- Professional Plan -->
+        <div class="col-md-6 col-lg-4">
+          <div class="pricing-card featured">
+            <div class="badge-featured">Popular</div>
+            <h3>Professional</h3>
+            <p class="price"><span class="currency">₹</span><span class="amount">15,000</span></p>
+            <p class="plan-desc">For growing businesses</p>
+            <ul class="plan-features">
+              <li><i class="fas fa-check"></i> Multi-Page Website</li>
+              <li><i class="fas fa-check"></i> Responsive Design</li>
+              <li><i class="fas fa-check"></i> Advanced SEO</li>
+              <li><i class="fas fa-check"></i> Contact Forms</li>
+              <li><i class="fas fa-check"></i> Basic E-Commerce</li>
+              <li><i class="fas fa-check"></i> 6 Months Support</li>
+            </ul>
+            <button class="btn btn-primary w-100">Choose Plan</button>
+          </div>
+        </div>
+
+        <!-- Enterprise Plan -->
+        <div class="col-md-6 col-lg-4">
+          <div class="pricing-card">
+            <h3>Enterprise</h3>
+            <p class="price"><span class="currency">₹</span><span class="amount">30,000</span><span class="period">+</span></p>
+            <p class="plan-desc">Custom solutions for enterprises</p>
+            <ul class="plan-features">
+              <li><i class="fas fa-check"></i> Full E-Commerce Store</li>
+              <li><i class="fas fa-check"></i> Payment Gateway</li>
+              <li><i class="fas fa-check"></i> Advanced Analytics</li>
+              <li><i class="fas fa-check"></i> Inventory System</li>
+              <li><i class="fas fa-check"></i> AI Features</li>
+              <li><i class="fas fa-check"></i> 12 Months Support</li>
+            </ul>
+            <button class="btn btn-outline-primary w-100">Contact Sales</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
     <div class="container">
       <h2 class="section-title">About NexLayar</h2>
       <div class="about-content">
@@ -76,8 +319,8 @@
           <h3>Your Trusted Web Solution Partner</h3>
           <p>NexLayar specializes in creating high-quality web solutions for college students and businesses. We combine modern web technologies with creative design to deliver websites that not only look great but also perform exceptionally well.</p>
           <ul class="about-list">
-            <li><i class="fas fa-check"></i> 5+ years of web development experience</li>
-            <li><i class="fas fa-check"></i> 100+ successful projects delivered</li>
+            <li><i class="fas fa-check"></i> 2+ years of web development experience</li>
+            <li><i class="fas fa-check"></i> 10+ successful projects delivered</li>
             <li><i class="fas fa-check"></i> Latest web technologies and best practices</li>
             <li><i class="fas fa-check"></i> Affordable pricing for students and startups</li>
           </ul>
@@ -91,9 +334,9 @@
       <h2 class="section-title">Get In Touch</h2>
       <div class="contact-content">
         <div class="contact-info">
-          <div class="info-item"><i class="fas fa-envelope"></i><div><h4>Email</h4><p>info@nexlayar.com</p></div></div>
-          <div class="info-item"><i class="fas fa-phone"></i><div><h4>Phone</h4><p>+1 (555) 123-4567</p></div></div>
-          <div class="info-item"><i class="fas fa-map-marker-alt"></i><div><h4>Location</h4><p>Tech Hub, Your City</p></div></div>
+          <div class="info-item"><i class="fas fa-envelope"></i><div><h4>Email</h4><p>nexlayar2026@gmail.com</p></div></div>
+          <div class="info-item"><i class="fas fa-phone"></i><div><h4>Phone</h4><p>+91 9834988871</p></div></div>
+          <div class="info-item"><i class="fas fa-map-marker-alt"></i><div><h4>Location</h4><p>Beed, Maharashtra</p></div></div>
         </div>
         <form class="contact-form" id="contactForm">
           <input type="text" placeholder="Your Name" required>
@@ -107,16 +350,39 @@
 
   <footer class="footer">
     <div class="container">
-      <p>&copy; 2026 NexLayar. All rights reserved.</p>
-      <div class="social-links">
-        <a href="#"><i class="fab fa-facebook"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-linkedin"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
+      <div class="row mb-4">
+        <div class="col-md-4 mb-3 mb-md-0">
+          <h5>NexLayar</h5>
+          <p>Building digital solutions for students and businesses with modern web technologies.</p>
+        </div>
+        <div class="col-md-4 mb-3 mb-md-0">
+          <h5>Quick Links</h5>
+          <ul class="footer-links">
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Projects</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h5>Follow Us</h5>
+          <div class="social-links">
+            <a href="https://www.linkedin.com/in/ganesh-borade-4916ba24b/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="http://x.com/ganuborade___98" target="_blank" title="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+            <a href="https://github.com/ganuborade" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="mailto:nexlayar2026@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="text-center">
+        <p>&copy; 2026 NexLayar. All rights reserved. | Developed with <i class="fas fa-heart" style="color: #ec4899;"></i> by Ganesh Borade</p>
       </div>
     </div>
   </footer>
 
+  <!-- Bootstrap JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
   <script src="docs/src/scripts/main.js"></script>
 </body>
 </html>
