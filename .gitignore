@@ -10,9 +10,12 @@ _site/
 # Additional Ruby/bundler ignore for when you run: bundle install
 /vendor
 
-# Node backend
+# Local dependencies, secrets, and runtime data
 node_modules/
 .env
+portfolio.db
+__pycache__/
+*.py[cod]
 
 # Specific ignore for GitHub Pages
 # GitHub Pages will always use its own deployed version of pages-gem
