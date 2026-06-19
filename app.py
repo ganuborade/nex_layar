@@ -3,36 +3,62 @@ import mysql.connector
 
 app = Flask(__name__)
 
-db = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="Roor@123",
-    database="portfolio_db"
-)
+try:
+    db = mysql.connector.connect(
+        host="localhost",
+        user="root",
+        password="Roor@123",
+        database="portfolio_db"
+    )
+    print("Database Connected Successfully!")
+except Exception as e:
+    print("Database Error:", e)
+
 
 @app.route('/contact', methods=['POST'])
 def contact():
-    data = request.json
 
-    cursor = db.cursor()
+    try:
+        print("Contact API Called")
 
-    sql = """
-    INSERT INTO contacts(name, email, message)
-    VALUES (%s, %s, %s)
-    """
+        data = request.get_json()
 
-    values = (
-        data['name'],
-        data['email'],
-        data['message']
-    )
+        print("Received Data:", data)
 
-    cursor.execute(sql, values)
-    db.commit()
+        name = data.get('name')
+        email = data.get('email')
+        message = data.get('message')
 
-    cursor.close()
+        cursor = db.cursor()
 
-    return jsonify({"message": "Message sent successfully!"})
+        sql = """
+        INSERT INTO contacts(name,email,message)
+        VALUES(%s,%s,%s)
+        """
 
-if __name__ == '__main__':
+        values = (name, email, message)
+
+        cursor.execute(sql, values)
+
+        db.commit()
+
+        print("Data Inserted Successfully")
+
+        cursor.close()
+
+        return jsonify({
+            "success": True,
+            "message": "Message Saved Successfully"
+        })
+
+    except Exception as e:
+        print("Error:", e)
+
+        return jsonify({
+            "success": False,
+            "message": str(e)
+        })
+
+
+if __name__ == "__main__":
     app.run(debug=True)
