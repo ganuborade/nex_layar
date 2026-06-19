@@ -221,7 +221,28 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ==========================================
-// 4. Admin Messages & Stats Dashboard Panel
+// 4. Google Form Embed Injection
+// ==========================================
+const GOOGLE_FORM_EMBED_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSddEUsGIPqOsh6uXN01mszEO12jZRgRjV_f6b4b1P07AVM16w/viewform?embedded=true';
+
+document.addEventListener('DOMContentLoaded', () => {
+    const googleFormContainer = document.getElementById('googleFormContainer');
+    if (!googleFormContainer) return;
+
+    const iframe = document.createElement('iframe');
+    iframe.src = GOOGLE_FORM_EMBED_URL;
+    iframe.width = '100%';
+    iframe.height = '800';
+    iframe.frameBorder = '0';
+    iframe.marginHeight = '0';
+    iframe.marginWidth = '0';
+    iframe.loading = 'lazy';
+    iframe.title = 'Contact Form';
+    googleFormContainer.appendChild(iframe);
+});
+
+// ==========================================
+// 5. Admin Messages & Stats Dashboard Panel
 // ==========================================
 document.addEventListener('DOMContentLoaded', () => {
     const adminTrigger = document.getElementById('adminTrigger');
