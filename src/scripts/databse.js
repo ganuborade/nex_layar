@@ -8,13 +8,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
         e.preventDefault();
 
-        const data = {
-            name: document.getElementById("name").value,
-            email: document.getElementById("email").value,
-            message: document.getElementById("message").value
-        };
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const message = document.getElementById("message").value;
 
-        console.log("Sending:", data);
+        console.log("Name:", name);
+        console.log("Email:", email);
+        console.log("Message:", message);
+
+        const data = {
+            name,
+            email,
+            message
+        };
 
         try {
 
@@ -34,6 +40,8 @@ document.addEventListener("DOMContentLoaded", () => {
             console.log(result);
 
             alert(result.message);
+
+            form.reset();
 
         } catch (error) {
 
