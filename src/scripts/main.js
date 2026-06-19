@@ -1,33 +1,7 @@
-// Dynamic Base URL for backend API requests (supports local and deployed modes)
-const getApiBaseUrl = () => {
-    const { hostname, port, protocol } = window.location;
-    const explicitUrl = window.API_BASE_URL || window.API_BASE_URL_OVERRIDE;
-    if (explicitUrl) {
-        return explicitUrl;
-    }
-
-    if (hostname === 'localhost' || hostname === '127.0.0.1' || protocol === 'file:') {
-        return port === '5000' ? '' : 'http://127.0.0.1:5000';
-    }
-
-    // On static hosts like GitHub Pages, a separately deployed backend is required.
-    return '';
-};
-window.API_BASE_URL = window.API_BASE_URL || getApiBaseUrl();
-const API_BASE_URL = window.API_BASE_URL;
-const IS_LOCAL_BACKEND = window.location.hostname === 'localhost'
-    || window.location.hostname === '127.0.0.1'
-    || window.location.protocol === 'file:'
-    || Boolean(API_BASE_URL);
-
-function apiFetch(path, options = {}) {
-    if (!IS_LOCAL_BACKEND && !API_BASE_URL) {
-        return Promise.reject(new Error('Backend API unavailable. Deploy Flask backend and set window.API_BASE_URL to its URL.'));
-    }
-    const url = (API_BASE_URL || '') + path;
-    return fetch(url, options);
-}
-window.apiFetch = apiFetch;
+// No backend API needed - website is now standalone
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("Website loaded successfully!");
+});
 
 const hamburger = document.getElementById('hamburger');
 const navLinks = document.querySelector('.nav-links');
@@ -97,6 +71,7 @@ document.querySelectorAll(
 
     observer.observe(card);
 });
+
 
 // Active Navbar Link
 window.addEventListener('scroll', () => {
