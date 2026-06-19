@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     alert(result.message || "Message sent successfully!");
                 }
                 form.reset();
-                
+
                 // Refresh admin messages if the admin view exists
                 if (window.refreshAdminMessages) {
                     window.refreshAdminMessages();

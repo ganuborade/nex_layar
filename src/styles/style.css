@@ -171,6 +171,7 @@ body {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -861,7 +862,8 @@ section {
 
     .contact-form input,
     .contact-form textarea {
-        font-size: 16px; /* Prevents zoom on iOS */
+        font-size: 16px;
+        /* Prevents zoom on iOS */
     }
 
     .pricing-card.featured {
@@ -1087,6 +1089,7 @@ section {
         opacity: 0;
         transform: translateX(100px);
     }
+
     to {
         opacity: 1;
         transform: translateX(0);
@@ -1236,7 +1239,8 @@ section {
     display: flex;
     justify-content: space-between;
     margin-bottom: 8px;
-    padding-right: 20px; /* Space for delete button */
+    padding-right: 20px;
+    /* Space for delete button */
 }
 
 .message-card-name {
@@ -1287,3 +1291,70 @@ section {
     }
 }
 
+/* ===========================
+   Dark Mode & Bootstrap Overrides
+   =========================== */
+/* Form Controls globally */
+.form-control {
+    background-color: var(--card-bg) !important;
+    color: var(--text-dark) !important;
+    border-color: var(--border-color) !important;
+}
+
+.form-control:focus {
+    background-color: var(--card-bg) !important;
+    color: var(--text-dark) !important;
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15) !important;
+}
+
+.form-control::placeholder {
+    color: var(--text-light) !important;
+    opacity: 0.7;
+}
+
+/* Horizontal lines */
+hr {
+    border-color: var(--border-color) !important;
+    opacity: 0.2;
+}
+
+/* Text muted in dark theme */
+.dark-theme .text-muted {
+    color: var(--text-light) !important;
+}
+
+/* Admin Drawer Table style overrides (ensures visible text in dark theme) */
+.admin-drawer .table {
+    color: var(--text-dark) !important;
+    background-color: transparent !important;
+    border-color: var(--border-color) !important;
+}
+
+.admin-drawer .table th,
+.admin-drawer .table td {
+    color: var(--text-dark) !important;
+    background-color: transparent !important;
+    border-color: var(--border-color) !important;
+}
+
+.admin-drawer .table-hover tbody tr:hover {
+    background-color: rgba(124, 58, 237, 0.05) !important;
+}
+
+/* Tabs style overrides (premium look and visible in dark mode) */
+.admin-drawer .nav-pills .nav-link {
+    color: var(--text-light);
+    border: 1px solid transparent;
+    transition: var(--transition);
+}
+
+.admin-drawer .nav-pills .nav-link:hover {
+    color: var(--text-dark);
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.admin-drawer .nav-pills .nav-link.active {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white !important;
+}
