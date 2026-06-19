@@ -298,16 +298,12 @@ def get_public_stats():
         cursor.execute("SELECT COUNT(*) FROM visitors")
         total_visits = cursor.fetchone()[0]
         
-        cursor.execute("SELECT COUNT(DISTINCT ip_address) FROM visitors")
-        unique_visitors = cursor.fetchone()[0]
-        
         cursor.close()
         conn.close()
         
         return jsonify({
             "success": True,
-            "total_visits": total_visits,
-            "unique_visitors": unique_visitors
+            "total_visits": total_visits
         })
     except Exception as e:
         print("Error in /api/public/stats route:", e)

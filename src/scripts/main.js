@@ -1,3 +1,13 @@
+// Dynamic Base URL for backend API requests (supports local and deployed modes)
+const getApiBaseUrl = () => {
+    const { hostname, port, protocol } = window.location;
+    if (hostname === 'localhost' || hostname === '127.0.0.1' || protocol === 'file:') {
+        return port === '5000' ? '' : 'http://127.0.0.1:5000';
+    }
+    return ''; // Relative path for deployed production (assumes backend serves static files)
+};
+window.API_BASE_URL = window.API_BASE_URL || getApiBaseUrl();
+
 const hamburger = document.getElementById('hamburger');
 const navLinks = document.querySelector('.nav-links');
 
@@ -262,18 +272,16 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Fetch public stats counts (Total Views, Unique Visitors)
+    // Fetch public stats counts (Total Views)
     async function loadPublicStats() {
         const totalVisitsEl = document.getElementById('statPublicTotalVisits');
-        const uniqueVisitorsEl = document.getElementById('statPublicUniqueVisitors');
 
         try {
-            const response = await fetch("http://127.0.0.1:5000/api/public/stats");
+            const response = await fetch(window.API_BASE_URL + "/api/public/stats");
             const result = await response.json();
 
             if (response.ok && result.success) {
                 if (totalVisitsEl) totalVisitsEl.innerText = result.total_visits || 0;
-                if (uniqueVisitorsEl) uniqueVisitorsEl.innerText = result.unique_visitors || 0;
             }
         } catch (error) {
             console.error("Fetch Public Stats Error:", error);
@@ -285,16 +293,38 @@ document.addEventListener('DOMContentLoaded', () => {
         // Load public counts immediately for everyone
         loadPublicStats();
 
+        const totalCol = document.getElementById('totalVisitsCol');
+        const uniqueCol = document.getElementById('uniqueVisitorsCol');
+
         if (sessionStorage.getItem('admin_authenticated') === 'true') {
             if (adminAuthSection) adminAuthSection.classList.add('d-none');
             if (adminContentSection) adminContentSection.classList.remove('d-none');
             if (adminLogoutBtn) adminLogoutBtn.classList.remove('d-none');
+            
+            // Show Unique Guests box and adjust Total Views box
+            if (totalCol) {
+                totalCol.classList.remove('col-12');
+                totalCol.classList.add('col-6');
+            }
+            if (uniqueCol) {
+                uniqueCol.classList.remove('d-none');
+            }
+
             loadMessages();
             loadStats();
         } else {
             if (adminAuthSection) adminAuthSection.classList.remove('d-none');
             if (adminContentSection) adminContentSection.classList.add('d-none');
             if (adminLogoutBtn) adminLogoutBtn.classList.add('d-none');
+            
+            // Hide Unique Guests box and adjust Total Views box
+            if (totalCol) {
+                totalCol.classList.remove('col-6');
+                totalCol.classList.add('col-12');
+            }
+            if (uniqueCol) {
+                uniqueCol.classList.add('d-none');
+            }
         }
     }
 
@@ -329,7 +359,7 @@ document.addEventListener('DOMContentLoaded', () => {
         adminMessagesList.innerHTML = '<div class="text-center text-muted py-5"><i class="fas fa-spinner fa-spin fa-2x"></i><p class="mt-2">Fetching messages...</p></div>';
 
         try {
-            const response = await fetch("http://127.0.0.1:5000/api/messages", {
+            const response = await fetch(window.API_BASE_URL + "/api/messages", {
                 headers: {
                     "Authorization": sessionStorage.getItem('admin_password') || ''
                 }
@@ -397,7 +427,7 @@ document.addEventListener('DOMContentLoaded', () => {
         adminVisitorsList.innerHTML = '<div class="text-center text-muted py-5"><i class="fas fa-spinner fa-spin fa-2x"></i><p class="mt-2">Loading stats...</p></div>';
 
         try {
-            const response = await fetch("http://127.0.0.1:5000/api/stats", {
+            const response = await fetch(window.API_BASE_URL + "/api/stats", {
                 headers: {
                     "Authorization": sessionStorage.getItem('admin_password') || ''
                 }
@@ -494,7 +524,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (deleteBtn) deleteBtn.disabled = true;
 
         try {
-            const response = await fetch(`http://127.0.0.1:5000/api/messages/${id}`, {
+            const response = await fetch(`${window.API_BASE_URL}/api/messages/${id}`, {
                 method: "DELETE",
                 headers: {
                     "Authorization": sessionStorage.getItem('admin_password') || ''
@@ -538,7 +568,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // 5. Visitor Logging (Automatic on load)
 // ==========================================
 document.addEventListener('DOMContentLoaded', () => {
-    fetch("http://127.0.0.1:5000/api/visit", {
+    fetch(window.API_BASE_URL + "/api/visit", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
