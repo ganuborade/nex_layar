@@ -1,12 +1,33 @@
 // Dynamic Base URL for backend API requests (supports local and deployed modes)
 const getApiBaseUrl = () => {
     const { hostname, port, protocol } = window.location;
+    const explicitUrl = window.API_BASE_URL || window.API_BASE_URL_OVERRIDE;
+    if (explicitUrl) {
+        return explicitUrl;
+    }
+
     if (hostname === 'localhost' || hostname === '127.0.0.1' || protocol === 'file:') {
         return port === '5000' ? '' : 'http://127.0.0.1:5000';
     }
-    return ''; // Relative path for deployed production (assumes backend serves static files)
+
+    // On static hosts like GitHub Pages, a separately deployed backend is required.
+    return '';
 };
 window.API_BASE_URL = window.API_BASE_URL || getApiBaseUrl();
+const API_BASE_URL = window.API_BASE_URL;
+const IS_LOCAL_BACKEND = window.location.hostname === 'localhost'
+    || window.location.hostname === '127.0.0.1'
+    || window.location.protocol === 'file:'
+    || Boolean(API_BASE_URL);
+
+function apiFetch(path, options = {}) {
+    if (!IS_LOCAL_BACKEND && !API_BASE_URL) {
+        return Promise.reject(new Error('Backend API unavailable. Deploy Flask backend and set window.API_BASE_URL to its URL.'));
+    }
+    const url = (API_BASE_URL || '') + path;
+    return fetch(url, options);
+}
+window.apiFetch = apiFetch;
 
 const hamburger = document.getElementById('hamburger');
 const navLinks = document.querySelector('.nav-links');
@@ -277,7 +298,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const totalVisitsEl = document.getElementById('statPublicTotalVisits');
 
         try {
-            const response = await fetch(window.API_BASE_URL + "/api/public/stats");
+            const response = await apiFetch("/api/public/stats");
             const result = await response.json();
 
             if (response.ok && result.success) {
@@ -359,7 +380,7 @@ document.addEventListener('DOMContentLoaded', () => {
         adminMessagesList.innerHTML = '<div class="text-center text-muted py-5"><i class="fas fa-spinner fa-spin fa-2x"></i><p class="mt-2">Fetching messages...</p></div>';
 
         try {
-            const response = await fetch(window.API_BASE_URL + "/api/messages", {
+            const response = await apiFetch("/api/messages", {
                 headers: {
                     "Authorization": sessionStorage.getItem('admin_password') || ''
                 }
@@ -427,7 +448,7 @@ document.addEventListener('DOMContentLoaded', () => {
         adminVisitorsList.innerHTML = '<div class="text-center text-muted py-5"><i class="fas fa-spinner fa-spin fa-2x"></i><p class="mt-2">Loading stats...</p></div>';
 
         try {
-            const response = await fetch(window.API_BASE_URL + "/api/stats", {
+            const response = await apiFetch("/api/stats", {
                 headers: {
                     "Authorization": sessionStorage.getItem('admin_password') || ''
                 }
@@ -524,7 +545,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (deleteBtn) deleteBtn.disabled = true;
 
         try {
-            const response = await fetch(`${window.API_BASE_URL}/api/messages/${id}`, {
+            const response = await apiFetch(`/api/messages/${id}`, {
                 method: "DELETE",
                 headers: {
                     "Authorization": sessionStorage.getItem('admin_password') || ''
@@ -568,7 +589,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // 5. Visitor Logging (Automatic on load)
 // ==========================================
 document.addEventListener('DOMContentLoaded', () => {
-    fetch(window.API_BASE_URL + "/api/visit", {
+    apiFetch("/api/visit", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

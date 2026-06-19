@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const data = { name, email, message };
 
         try {
-            const response = await fetch((window.API_BASE_URL || '') + "/contact", {
+            const response = await apiFetch("/contact", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
