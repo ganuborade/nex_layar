@@ -39,7 +39,7 @@
           <button class="theme-toggle-btn" id="themeToggle" title="Toggle Dark/Light Mode">
             <i class="fas fa-moon"></i>
           </button>
-          <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+          <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
             <span></span>
             <span></span>
             <span></span>
@@ -365,7 +365,7 @@
               <li><i class="fas fa-times"></i> E-Commerce Features</li>
               <li><i class="fas fa-times"></i> Advanced Analytics</li>
             </ul>
-            <button class="btn btn-outline-primary w-100">Choose Plan</button>
+            <a href="#contact" class="btn btn-outline-primary w-100">Choose Plan</a>
           </div>
         </div>
 
@@ -384,7 +384,7 @@
               <li><i class="fas fa-check"></i> Basic E-Commerce</li>
               <li><i class="fas fa-check"></i> 6 Months Support</li>
             </ul>
-            <button class="btn btn-primary w-100">Choose Plan</button>
+            <a href="#contact" class="btn btn-primary w-100">Choose Plan</a>
           </div>
         </div>
 
@@ -403,30 +403,31 @@
               <li><i class="fas fa-check"></i> AI Features</li>
               <li><i class="fas fa-check"></i> 12 Months Support</li>
             </ul>
-            <button class="btn btn-outline-primary w-100">Contact Sales</button>
+            <a href="#contact" class="btn btn-outline-primary w-100">Contact Sales</a>
           </div>
         </div>
       </div>
     </div>
   </section>
-  <div class="container">
-    <h2 class="section-title">About NexLayar</h2>
-    <div class="about-content">
-      <div class="about-text">
-        <h3>Your Trusted Web Solution Partner</h3>
-        <p>NexLayar specializes in creating high-quality web solutions for college students and businesses. We combine
-          modern web technologies with creative design to deliver websites that not only look great but also perform
-          exceptionally well.</p>
-        <ul class="about-list">
-          <li><i class="fas fa-check"></i> 2+ years of web development experience</li>
-          <li><i class="fas fa-check"></i> 8+ successful projects delivered</li>
-          <li><i class="fas fa-check"></i> Latest web technologies and best practices</li>
-          <li><i class="fas fa-check"></i> Affordable pricing for students and startups</li>
-        </ul>
+  <section id="about" class="about">
+    <div class="container">
+      <h2 class="section-title">About NexLayar</h2>
+      <div class="about-content">
+        <div class="about-text">
+          <h3>Your Trusted Web Solution Partner</h3>
+          <p>NexLayar specializes in creating high-quality web solutions for college students and businesses. We combine
+            modern web technologies with creative design to deliver websites that not only look great but also perform
+            exceptionally well.</p>
+          <ul class="about-list">
+            <li><i class="fas fa-check"></i> 2+ years of web development experience</li>
+            <li><i class="fas fa-check"></i> 8+ successful projects delivered</li>
+            <li><i class="fas fa-check"></i> Latest web technologies and best practices</li>
+            <li><i class="fas fa-check"></i> Affordable pricing for students and startups</li>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
   <section id="contact" class="contact">
     <div class="container">
@@ -452,7 +453,15 @@
             </div>
           </div>
         </div>
-        <div class="contact-form" id="googleFormContainer"></div>
+        <div class="contact-form">
+          <iframe
+            class="google-form"
+            src="https://docs.google.com/forms/d/e/1FAIpQLSddEUsGIPqOsh6uXN01mszEO12jZRgRjV_f6b4b1P07AVM16w/viewform?embedded=true"
+            title="NexLayar contact form"
+            loading="lazy">
+            Loading contact form…
+          </iframe>
+        </div>
       </div>
     </div>
   </section>
@@ -492,11 +501,6 @@
     </div>
   </footer>
 
-  <!-- Toast Notification Container -->
-  <div id="toastContainer" class="toast-container"></div>
-
-  <!-- Bootstrap JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
   <script src="./src/scripts/main.js"></script>
 </body>
 
